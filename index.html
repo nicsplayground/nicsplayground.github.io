@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chill ^_^</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            height: 100vh;
+            background: url('https://i.pinimg.com/originals/fd/40/a4/fd40a4b8b151c4e432106576187d03c9.gif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .content {
+            text-align: center;
+            background: rgba(152, 148, 228, 0.8); 
+            padding: 10px 20px 20px 20px; 
+            margin: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .overlay-text {
+            position: absolute;
+            padding: 20px;
+            color: #f0bce4;
+        }
+        .top-left {
+            top: 20px;
+            left: 20px;
+        }
+        .top-right {
+            top: 20px;
+            right: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            text-transform: lowercase;
+            color: #f0bce4;
+        }
+        #playPauseBtn {
+            width: 70px; 
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f0bce4;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+        }
+        #playPauseBtn:hover {
+            background-color: #e0acc4;
+        }
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 150px;
+            height: 8px;
+            background: #f0bce4;
+            border-radius: 5px; 
+            outline: none;
+            opacity: 0.7;
+            margin: 20px 0; 
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+        input[type=range]:hover {
+            opacity: 1;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #e0acc4;
+            cursor: pointer;
+        }
+        input[type=range]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #e0acc4;
+            cursor: pointer;
+        }
+        iframe {
+            display: none; 
+        }
+        @media (max-width: 768px) {
+            body {
+                justify-content: center; 
+                align-items: flex-end; 
+            }
+            .overlay-text {
+                width: 100%;
+                text-align: center;
+                padding: 10px; 
+            }
+            .top-right {
+                top: 60px; 
+                right: 0;
+                left: 0;
+                margin-top: 10px;
+            }
+            .top-left {
+                right: 0;
+                left: 0;
+            }
+            .content {
+                position: absolute;
+                bottom: 20px; 
+                left: 50%;
+                transform: translateX(-60%); 
+                padding: 10px 10px 20px 10px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay-text top-left">
+        <h1>relax with a cup of tea</h1>
+    </div>
+    <div class="overlay-text top-right">
+        <h1>stay cute</h1>
+    </div>
+    <div class="content">
+        <h1>chill ^_^</h1>
+        <h1 id="playPauseBtn" style="cursor: pointer;">play</h1>
+        <input id="volumeSlider" type="range" min="0" max="100" value="25">
+        <iframe id="player" width="560" height="315" src="https://www.youtube.com/embed/s6oZ6LJeDws?enablejsapi=1" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    </div>
+
+    <script>
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+        var isPlaying = false;
+
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            var playPauseButton = document.getElementById("playPauseBtn");
+            var volumeSlider = document.getElementById("volumeSlider");
+
+            playPauseButton.addEventListener("click", function() {
+                if (isPlaying) {
+                    player.pauseVideo();
+                    playPauseButton.textContent = "play";
+                } else {
+                    player.playVideo();
+                    playPauseButton.textContent = "pause";
+                }
+                isPlaying = !isPlaying;
+            });
+
+            volumeSlider.addEventListener("input", function() {
+                player.setVolume(volumeSlider.value);
+            });
+        }
+    </script>
+</body>
+</html>
