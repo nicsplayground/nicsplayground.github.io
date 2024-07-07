@@ -47,6 +47,7 @@
             text-transform: lowercase;
             color: #f0bce4;
             font-weight: bold;
+            cursor: pointer; /* Add cursor pointer to indicate clickable */
         }
         #playPauseBtn {
             width: 70px; 
@@ -191,7 +192,7 @@
         <h1>stay cute</h1>
     </div>
     <div class="content">
-        <h1>chill ^_^</h1>
+        <h1 id="toggleIframe">chill ^_^</h1>
         <div class="controls" style="display: flex; align-items: center;">
             <h1 id="playPauseBtn" style="cursor: pointer;">play</h1>
             <button id="shuffleBtn">&#9829;</button>
@@ -227,11 +228,13 @@
             var shuffleButton = document.getElementById("shuffleBtn");
             var volumeSlider = document.getElementById("volumeSlider");
             var currentVideoTitle = document.getElementById("currentVideoTitle");
+            var toggleIframe = document.getElementById("toggleIframe");
+            var iframe = document.getElementById("player");
 
-            // Get the total number of videos in the playlist
+            
             totalVideos = player.getPlaylist().length;
 
-            // Enable looping for the playlist
+            
             player.setLoop(true);
 
             playPauseButton.addEventListener("click", function() {
@@ -246,9 +249,9 @@
             });
 
             shuffleButton.addEventListener("click", function() {
-                // Shuffle and play a random video that hasn't been played yet
+                
                 if (playedVideos.length === totalVideos) {
-                    playedVideos = []; // Reset the played videos
+                    playedVideos = []; 
                 }
                 var remainingVideos = Array.from(Array(totalVideos).keys()).filter(i => !playedVideos.includes(i));
                 var randomIndex = remainingVideos[Math.floor(Math.random() * remainingVideos.length)];
@@ -264,6 +267,14 @@
                 var videoData = player.getVideoData();
                 var videoUrl = `https://www.youtube.com/watch?v=${videoData.video_id}`;
                 window.open(videoUrl, '_blank');
+            });
+
+            toggleIframe.addEventListener("click", function() {
+                if (iframe.style.display === "none" || iframe.style.display === "") {
+                    iframe.style.display = "block";
+                } else {
+                    iframe.style.display = "none";
+                }
             });
         }
 
