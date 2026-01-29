@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sri Lanka 2026 - Interactive cinematic card stack experience">
+  <title>Sri Lanka 2026</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="main-header" id="mainHeader">
+    <h1 class="main-title">sri lanka</h1>
+  </header>
+
+  <main class="container">
+    <div class="card-stack" id="cardStack">
+      <article class="card" data-card-index="0">
+        <div class="card-inner">
+          <img src="images/negombo.jpg" alt="Sri Lanka Memory 1" class="card-image">
+          <div class="card-overlay">
+            <h2 class="card-title-center">Negombo</h2>
+            <div class="card-text-bottom">
+              <p class="card-description">Day 1 to Day 3</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-card-index="1">
+        <div class="card-inner">
+          <img src="images/sigiriya.jpg" alt="Sri Lanka Memory 2" class="card-image">
+          <div class="card-overlay">
+            <h2 class="card-title-center">Sigiriya</h2>
+            <div class="card-text-bottom">
+              <p class="card-description">Day 3 to Day 6</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-card-index="2">
+        <div class="card-inner">
+          <img src="images/nuwara.jpg" alt="Sri Lanka Memory 3" class="card-image">
+          <div class="card-overlay">
+            <h2 class="card-title-center">Nuwara Eliya</h2>
+            <div class="card-text-bottom">
+              <p class="card-description">Day 6 to Day 8</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-card-index="3">
+        <div class="card-inner">
+          <img src="images/ella.jpg" alt="Sri Lanka Memory 4" class="card-image">
+          <div class="card-overlay">
+            <h2 class="card-title-center">Ella</h2>
+            <div class="card-text-bottom">
+              <p class="card-description">Day 8 to Day 9</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-card-index="4">
+        <div class="card-inner">
+          <img src="images/udaw.jpg" alt="Sri Lanka Memory 5" class="card-image">
+          <div class="card-overlay">
+            <h2 class="card-title-center">Udawalawa</h2>
+            <div class="card-text-bottom">
+              <p class="card-description">Day 9 to Day 11</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-card-index="5">
+        <div class="card-inner">
+          <img src="images/weli.jpg" alt="Sri Lanka Memory 6" class="card-image">
+          <div class="card-overlay">
+            <h2 class="card-title-center">Weligama</h2>
+            <div class="card-text-bottom">
+              <p class="card-description">Day 11 to Day 15</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Close enlarged card">
+        <svg width="32" height="32" viewBox="0 0 32 32">
+          <path d="M8 8 L24 24 M24 8 L8 24" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <img src="" alt="" class="modal-image" id="modalImage">
+      <div class="modal-text">
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <p class="modal-description" id="modalDescription"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/card-stack.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
