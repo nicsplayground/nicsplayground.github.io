@@ -30,8 +30,8 @@
   :root {
     --card-width: 300px;
     --card-height: 400px;
-    --card-enlarged-width: 100vw;
-    --card-enlarged-height: 100vh;
+    --card-enlarged-width: 320px;
+    --card-enlarged-height: 480px;
 
     --stack-offset-x: 12px;
     --stack-offset-y: -10px;
