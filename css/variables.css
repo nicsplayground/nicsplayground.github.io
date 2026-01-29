@@ -29,9 +29,9 @@
 @media (max-width: 768px) {
   :root {
     --card-width: 300px;
-    --card-height: 400px;
-    --card-enlarged-width: 320px;
-    --card-enlarged-height: 480px;
+    --card-height: min(350px, calc(100vh - 10rem));
+    --card-enlarged-width: 360px;
+    --card-enlarged-height: 540px;
 
     --stack-offset-x: 12px;
     --stack-offset-y: -10px;
