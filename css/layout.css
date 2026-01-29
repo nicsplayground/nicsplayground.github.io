@@ -50,8 +50,16 @@ body {
 }
 
 @media (max-width: 768px) {
+  body {
+    overflow: hidden;
+  }
+
   .container {
-    padding-top: calc(var(--spacing-lg) + 0.5rem);
+    height: 100vh;
+    min-height: unset;
+    padding: 1rem;
+    padding-top: 5rem;
+    overflow: hidden;
   }
 
   .main-title {
